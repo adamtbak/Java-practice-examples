@@ -1,6 +1,6 @@
 /*
  * Class used to generate the first 50 prime numbers.
- * Example is Listing 5.15 from Introduction to Java Programming and Data Structures
+ * Example is Listing 6.7 from Introduction to Java Programming and Data Structures
  * Comprehensive Version 12th Edition by Y. Daniel Liang
  *
  */
@@ -9,31 +9,21 @@ public class PrimeNumber
 {
     public static void main(String[] args)
     {
-        final int NUMBER_OF_PRIMES = 50; // Number of primes to display
+        System.out.println("The first 50 prime numbers are: \n");
+        printPrimeNumber(50);
+    } // End of main
+    
+    public static void printPrimeNumber(int numberOfPrimes)
+    {
         final int NUMBER_OF_PRIMES_PER_LINE = 10; // Display 10 per line
         int count = 0; // Count the number of prime numbers
         int number = 2; // A number to be tested for primeness
-        
-        System.out.println("The first 50 prime numbers are: \n");
-        
+
         // Repeatedly find prime numbers
-        while(count < NUMBER_OF_PRIMES)
+        while(count < numberOfPrimes)
         {
-            // Assume the number is prime
-            boolean isPrime = true; // Is the current number prime?
-            
-            // Test whether number is prime
-            for(int divisor = 2; divisor <= number / 2; divisor++)
-            {
-                if(number % divisor == 0)
-                {
-                    isPrime = false; // Set isPrime to false
-                    break; // Exit the for loop
-                }
-            }
-            
             // Display the prime number and increase the count
-            if(isPrime)
+            if(isPrime(number))
             {
                 count++; // Increase the count;
                 
@@ -51,5 +41,19 @@ public class PrimeNumber
             // Check if the next number is prime
             number++;
         } // End of while loop
-    } // End of main
+    } // End of printPrimeNumber
+    
+    // Check whether number is prime
+    public static boolean isPrime(int number)
+    {          
+        for(int divisor = 2; divisor <= number / 2; divisor++)
+        {
+            if(number % divisor == 0)
+            {
+                return false;                   
+            }
+        }
+
+        return true;
+    }
 } // End of class
