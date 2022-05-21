@@ -1,6 +1,6 @@
 /*
     Class used to find the Greatest Common Divisor between two integers.
-    Example is Listing 5.9 from Introduction to Java Programming and Data Structures
+    Example is Listing 6.6 from Introduction to Java Programming and Data Structures
     Comprehensive Version 12th Edition by Y. Daniel Liang
 */
 
@@ -20,7 +20,14 @@ public class GreatestCommonDivisor
         
         System.out.print("Enter second integer: ");
         int secondInteger = input.nextInt();
-        
+       
+        System.out.println("The greatest commond divisor for " + firstInteger +
+                " and " + secondInteger + " is: " + gcd(firstInteger, secondInteger));
+    } // End Main    
+    
+    // Return the greatest common divisor of two integers
+    public static int gcd(int firstInteger, int secondInteger)
+    {
         int greatestCommonDivisor = 1; // Initial GCD is 1
         int numberToCheck = 2;
         
@@ -34,7 +41,6 @@ public class GreatestCommonDivisor
             numberToCheck++;
         }
         
-        System.out.println("The greatest commond divisor for " + firstInteger +
-                " and " + secondInteger + " is: " + greatestCommonDivisor);
-    } // End Main    
+        return greatestCommonDivisor;
+    } // End gcd
 } // End Class
